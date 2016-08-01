@@ -1,22 +1,23 @@
 {
   "name": "KKSActionSheet",
   "version": "0.1.0",
-  "summary": "A short description of KKSActionSheet.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/KKSActionSheet",
-  "license": {
-    "type": "MIT",
-    "file": "LICENSE"
-  },
+  "summary": "Beatiful action sheet written on swift",
+  "homepage": "https://github.com/krizhanovskii",
+  "license": "MIT",
   "authors": {
-    "k_krizhanovskii": "kk@starladder.tv"
+    "k.krizhanovskii": "k.krizhanovskii@gmail.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/KKSActionSheet.git",
+    "git": "https://github.com/krizhanovskii/KKActionSheet.git",
     "tag": "0.1.0"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "KKSActionSheet/Classes/**/*"
+  "requires_arc": true,
+  "source_files": "KKSActionSheet/Classes/**/*",
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ]
 }

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E087DA87CA949C44BEF36EF7D795E9901375B78E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E087DA87CA949C44BEF36EF7D795E9901375B78E" : 0,
+    "E8CCC16452EE8559E07523106061F8012632EED8" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DD75ACD0-54DD-40D2-A061-22C0276A0C77",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E087DA87CA949C44BEF36EF7D795E9901375B78E" : "KKSActionSheet\/",
+    "E8CCC16452EE8559E07523106061F8012632EED8" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Pods",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/Pods\/Pods.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/krizhanovskii\/KKActionSheet.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E087DA87CA949C44BEF36EF7D795E9901375B78E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/krizhanovskii\/KKActionSheet.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E8CCC16452EE8559E07523106061F8012632EED8"
+    }
+  ]
+}
