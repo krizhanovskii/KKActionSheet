@@ -4,8 +4,11 @@
 [![License](https://img.shields.io/cocoapods/l/KKSActionSheet.svg?style=flat)](http://cocoapods.org/pods/KKSActionSheet)
 [![Platform](https://img.shields.io/cocoapods/p/KKSActionSheet.svg?style=flat)](http://cocoapods.org/pods/KKSActionSheet)
 
-## Example
 
+![Screenshot](Screenshot.png)
+
+
+## Example
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
