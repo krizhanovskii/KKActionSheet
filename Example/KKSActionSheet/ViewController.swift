@@ -29,8 +29,7 @@ class ViewController: UIViewController {
         actionSheet.actionSheetData = [KKActionSheetData(image: UIImage(),title: "1",complitionHandler:nil),
                                              KKActionSheetData(image: UIImage(named:"picker_camera"),title:"2",complitionHandler:nil),
                                              KKActionSheetData(image: UIImage(named:"picker_close"),title: "3",complitionHandler: { Void in
-                                                print("HAndler used")
-                                                button.backgroundColor = .orangeColor();
+                                                print("Handler used")
                                              })]
 
 
