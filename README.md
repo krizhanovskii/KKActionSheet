@@ -38,9 +38,9 @@ let actionSheet = KKActionSheet()
 
 Then add data:
 ```swift
-actionSheet.actionSheetData = [KKActionSheetData(image: UIImage(),title: "1",complitionHandler:nil),
-KKActionSheetData(image: UIImage(named:"picker_camera"),title:"2",complitionHandler:nil),
-KKActionSheetData(image: UIImage(named:"picker_close"),title: "3",complitionHandler: { Void in
+actionSheet.actionSheetData = [KKActionSheetData(image: UIImage(named:"picker_photo"),title: "From lib",complitionHandler:nil),
+KKActionSheetData(image: UIImage(named:"picker_camera"),title:"Make photo",complitionHandler:nil),
+KKActionSheetData(image: UIImage(named:"picker_close"),title: "Close",complitionHandler: { Void in
 print("Handler used")
 })]
 ```
