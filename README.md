@@ -5,18 +5,19 @@
 [![Platform](https://img.shields.io/cocoapods/p/KKSActionSheet.svg?style=flat)](http://cocoapods.org/pods/KKSActionSheet)
 
 
-![ScreenShot](Screenshot.png)
 
 
 ## Example
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+![Preview](Screenshot.png)
+
 
 ## Requirements
 * ios: 8.3. 
 * xcode: 6
 
 ## Installation
-
 KKSActionSheet is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
