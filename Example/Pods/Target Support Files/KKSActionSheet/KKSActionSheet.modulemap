@@ -1,0 +1,6 @@
+framework module KKSActionSheet {
+  umbrella header "KKSActionSheet-umbrella.h"
+
+  export *
+  module * { export * }
+}

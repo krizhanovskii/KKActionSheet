@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomActionSheet" customModule="testCUstomFilter" customModuleProvider="target">
+            <connections>
+                <outlet property="constraintHeight" destination="d2i-dZ-vUT" id="hJD-m6-9Kt"/>
+                <outlet property="tableView" destination="IFx-3k-Xxd" id="bwv-fw-AdG"/>
+                <outlet property="viewForTap" destination="MKD-dV-WRi" id="WZh-xf-x4o"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LWw-x5-Ufl">
+                    <rect key="frame" x="0.0" y="418" width="320" height="150"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IFx-3k-Xxd">
+                            <rect key="frame" x="0.0" y="5" width="320" height="145"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="850-81-uno"/>
+                                <outlet property="delegate" destination="-1" id="E3S-gx-NR0"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="IFx-3k-Xxd" secondAttribute="bottom" id="D9X-Cr-blk"/>
+                        <constraint firstAttribute="trailing" secondItem="IFx-3k-Xxd" secondAttribute="trailing" id="auP-G6-fw2"/>
+                        <constraint firstItem="IFx-3k-Xxd" firstAttribute="top" secondItem="LWw-x5-Ufl" secondAttribute="top" constant="5" id="bjM-Ui-U66"/>
+                        <constraint firstAttribute="height" constant="150" id="d2i-dZ-vUT"/>
+                        <constraint firstItem="IFx-3k-Xxd" firstAttribute="leading" secondItem="LWw-x5-Ufl" secondAttribute="leading" id="s9z-Pp-nKj"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MKD-dV-WRi">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="418"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="MKD-dV-WRi" secondAttribute="trailing" id="140-QU-gAP"/>
+                <constraint firstAttribute="trailing" secondItem="LWw-x5-Ufl" secondAttribute="trailing" id="8kJ-k1-1uZ"/>
+                <constraint firstItem="LWw-x5-Ufl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="9ta-hD-4Lc"/>
+                <constraint firstItem="LWw-x5-Ufl" firstAttribute="top" secondItem="MKD-dV-WRi" secondAttribute="bottom" id="ckw-Wo-Aj3"/>
+                <constraint firstItem="MKD-dV-WRi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ggC-r7-SWE"/>
+                <constraint firstAttribute="bottom" secondItem="LWw-x5-Ufl" secondAttribute="bottom" id="qyX-5J-ud4"/>
+                <constraint firstItem="MKD-dV-WRi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yAG-jq-1X9"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>
