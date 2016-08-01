@@ -5,7 +5,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/KKSActionSheet.svg?style=flat)](http://cocoapods.org/pods/KKSActionSheet)
 
 
-![Preview](Screenshot.png)
+![Preview](Screenshot.png =75x135)
 
 
 ## Example
