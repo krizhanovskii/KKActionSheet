@@ -1,6 +1,5 @@
 # KKSActionSheet
 
-[![CI Status](http://img.shields.io/travis/k_krizhanovskii/KKSActionSheet.svg?style=flat)](https://travis-ci.org/k_krizhanovskii/KKSActionSheet)
 [![Version](https://img.shields.io/cocoapods/v/KKSActionSheet.svg?style=flat)](http://cocoapods.org/pods/KKSActionSheet)
 [![License](https://img.shields.io/cocoapods/l/KKSActionSheet.svg?style=flat)](http://cocoapods.org/pods/KKSActionSheet)
 [![Platform](https://img.shields.io/cocoapods/p/KKSActionSheet.svg?style=flat)](http://cocoapods.org/pods/KKSActionSheet)
