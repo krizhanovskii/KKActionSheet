@@ -5,9 +5,8 @@
 [![Platform](https://img.shields.io/cocoapods/p/KKSActionSheet.svg?style=flat)](http://cocoapods.org/pods/KKSActionSheet)
 
 
-<!--![ScreenShot](Screenshot.png)-->
+![ScreenShot](Screenshot.png)
 
-<img src="Screenshot.png" alt="Drawing" style="width: 75px;"/>
 
 ## Example
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
