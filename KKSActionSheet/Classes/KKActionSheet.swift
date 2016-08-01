@@ -8,12 +8,12 @@
 
 import UIKit
 
-class KKActionSheetData: NSObject {
+public class KKActionSheetData: NSObject {
     private var _image: UIImage?
     private var _title: String?
 
     /* table cell image */
-    var image : UIImage? {
+    public var image : UIImage? {
         get {
             return self._image
         }
@@ -21,7 +21,7 @@ class KKActionSheetData: NSObject {
     
     
     /* table cell title */
-    var title : String? {
+    public var title : String? {
         get {
             return self._title
         }
@@ -32,7 +32,7 @@ class KKActionSheetData: NSObject {
 
     
     /* init */
-    init(image:UIImage?,title:String, complitionHandler:(() -> Void)?) {
+    public init(image:UIImage?,title:String, complitionHandler:(() -> Void)?) {
         self._image = image
         self._title = title
         self._complitionHandler = complitionHandler
@@ -41,7 +41,7 @@ class KKActionSheetData: NSObject {
 }
 
 /* main class */
-class KKActionSheet: UIView, UITableViewDelegate, UITableViewDataSource {
+public class KKActionSheet: UIView, UITableViewDelegate, UITableViewDataSource {
     /* outlets */
     private let nibName = "KKActionSheet"
     private var view: UIView!
@@ -52,7 +52,7 @@ class KKActionSheet: UIView, UITableViewDelegate, UITableViewDataSource {
     
     
     /* action sheet data */
-    var actionSheetData : Array<KKActionSheetData>? {
+    public var actionSheetData : Array<KKActionSheetData>? {
         willSet(newData) {
             self.actionSheetData = newData
             self.constraintHeight.constant = CGFloat(newData!.count) * self.actionSheetItemHeight + 5
@@ -66,7 +66,7 @@ class KKActionSheet: UIView, UITableViewDelegate, UITableViewDataSource {
     }
 
     /* action sheet height min(50) max(100) */
-    var actionSheetItemHeight : CGFloat = 50 {
+    public var actionSheetItemHeight : CGFloat = 50 {
         didSet {
             if self.actionSheetItemHeight != 50  {
                 self.actionSheetItemHeight = max(CGFloat(50), min(CGFloat(100),self.actionSheetItemHeight))
@@ -83,28 +83,28 @@ class KKActionSheet: UIView, UITableViewDelegate, UITableViewDataSource {
     
     /* Colors */
     /* textColor for Normal state */
-    var actionSheetCellTextColorNormal : UIColor? {
+    public var actionSheetCellTextColorNormal : UIColor? {
         willSet(newValue) {
             self.actionSheetCellTextColorNormal = newValue
         }
     }
     
     /* backgroundColor for Normal state */
-    var actionSheetCellBGColorNormal : UIColor? {
+    public var actionSheetCellBGColorNormal : UIColor? {
         willSet(newValue) {
             self.actionSheetCellBGColorNormal = newValue
         }
     }
     
     /* textColor for Highlighted state */
-    var actionSheetCellTextColorHighlighted : UIColor? {
+    public var actionSheetCellTextColorHighlighted : UIColor? {
         willSet(newValue) {
             self.actionSheetCellTextColorHighlighted = newValue
         }
     }
     
     /* backgroundColor for Highlighted state */
-    var actionSheetCellBGColorHighlighted : UIColor? {
+    public var actionSheetCellBGColorHighlighted : UIColor? {
         willSet(newValue) {
             self.actionSheetCellBGColorHighlighted = newValue
         }
@@ -116,12 +116,12 @@ class KKActionSheet: UIView, UITableViewDelegate, UITableViewDataSource {
         self.init(frame:UIScreen.mainScreen().bounds)
     }
     
-    private override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         xibSetup()
     }
     
-    internal required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         xibSetup()
     }
@@ -165,15 +165,15 @@ class KKActionSheet: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     //MARK: Table View delegate
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    public func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return self.actionSheetItemHeight
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = self.tableView.dequeueReusableCellWithIdentifier("action_cell") as? ActionSheetCell
         cell?._bgColor = self.actionSheetCellBGColorNormal
@@ -198,7 +198,7 @@ class KKActionSheet: UIView, UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         if  self.actionSheetData![indexPath.row]._complitionHandler != nil {
             self.actionSheetData![indexPath.row]._complitionHandler!()
@@ -206,12 +206,12 @@ class KKActionSheet: UIView, UITableViewDelegate, UITableViewDataSource {
         self.closeActionSheet()
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return actionSheetData == nil ? 0 : actionSheetData!.count
     }
     
     //MARK: func for show\dissmis it
-    func showActionSheetWithSender(sender cntr:UIViewController) {
+    public func showActionSheetWithSender(sender cntr:UIViewController) {
         if cntr.navigationController != nil {
             self.alpha = 0
             cntr.navigationController?.view.addSubview(self)
