@@ -11,6 +11,8 @@ import UIKit
 public class KKActionSheetData: NSObject {
     private var _image: UIImage?
     private var _title: String?
+    
+    public var titleColor : UIColor?
 
     /* table cell image */
     public var image : UIImage? {
@@ -183,6 +185,10 @@ public class KKActionSheet: UIView, UITableViewDelegate, UITableViewDataSource {
         cell?._textHGColor = self.actionSheetCellTextColorHighlighted
         
         cell!.cellSetupView()
+        
+        if self.actionSheetData![indexPath.row].titleColor != nil {
+            cell?._textColor = self.actionSheetData![indexPath.row].titleColor!
+        }
 
         cell?.viewContent.lblTitle.text = self.actionSheetData![indexPath.row].title
         cell?.viewContent.imgIcon.image = self.actionSheetData![indexPath.row].image
