@@ -39,10 +39,10 @@ let actionSheet = KKActionSheet()
 Then add data:
 ```swift
 actionSheet.actionSheetData = [KKActionSheetData(image: UIImage(named:"picker_photo"),title: "From lib",complitionHandler:nil),
-                                KKActionSheetData(image: UIImage(named:"picker_camera"),title:"Make photo",complitionHandler:nil),
-                                KKActionSheetData(image: UIImage(named:"picker_close"),title: "Close",complitionHandler: { Void in
-                                            print("Handler used")
-                                    })]
+KKActionSheetData(image: UIImage(named:"picker_camera"),title:"Make photo",complitionHandler:nil),
+KKActionSheetData(image: UIImage(named:"picker_close"),title: "Close",complitionHandler: { Void in
+print("Handler used")
+})]
 ```
 
 To show action sheet call:
@@ -71,6 +71,19 @@ public var actionSheetCellTextColorHighlighted: UIColor?
 public var actionSheetCellBGColorHighlighted: UIColor?
 ```
 
+If u want different color for all cells, use it:
+```swift
+let data = KKActionSheetData(image: UIImage(),title:"1",complitionHandler:nil)
+data.titleColor = .orangeColor()
+
+
+customActionSheet.actionSheetData = [data,
+KKActionSheetData(image:UIImage(named:"picker_camera"),title:"2",complitionHandler:nil),
+KKActionSheetData(image:UIImage(named:"picker_close"),title: "3",complitionHandler: { Void in
+print("HAndler used")
+button.backgroundColor = .orangeColor();
+})]
+```
 
 ## Author
 
