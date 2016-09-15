@@ -7,15 +7,26 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
 
-public class KKActionSheetData: NSObject {
-    private var _image: UIImage?
-    private var _title: String?
+
+open class KKActionSheetData: NSObject {
+    fileprivate var _image: UIImage?
+    fileprivate var _title: String?
     
-    public var titleColor : UIColor?
-
+    open var titleColor : UIColor?
+    
     /* table cell image */
-    public var image : UIImage? {
+    open var image : UIImage? {
         get {
             return self._image
         }
@@ -23,15 +34,15 @@ public class KKActionSheetData: NSObject {
     
     
     /* table cell title */
-    public var title : String? {
+    open var title : String? {
         get {
             return self._title
         }
     }
     
     /* complition handler */
-    private  var _complitionHandler:(()->Void)?
-
+    fileprivate  var _complitionHandler:(()->Void)?
+    
     
     /* init */
     public init(image:UIImage?,title:String, complitionHandler:(() -> Void)?) {
@@ -40,35 +51,37 @@ public class KKActionSheetData: NSObject {
         self._complitionHandler = complitionHandler
     }
     
+
+    
 }
 
 /* main class */
-public class KKActionSheet: UIView, UITableViewDelegate, UITableViewDataSource {
+open class KKActionSheet: UIView, UITableViewDelegate, UITableViewDataSource {
     /* outlets */
-    private let nibName = "KKActionSheet"
-    private var view: UIView!
-    @IBOutlet private var viewForTap: UIView!
-    @IBOutlet private var constraintHeight: NSLayoutConstraint!
-    @IBOutlet private var tableView: UITableView!
+    fileprivate let nibName = "KKActionSheet"
+    fileprivate var view: UIView!
+    @IBOutlet fileprivate var viewForTap: UIView!
+    @IBOutlet fileprivate var constraintHeight: NSLayoutConstraint!
+    @IBOutlet fileprivate var tableView: UITableView!
     
     
     
     /* action sheet data */
-    public var actionSheetData : Array<KKActionSheetData>? {
+    open var actionSheetData : Array<KKActionSheetData>? {
         willSet(newData) {
             self.actionSheetData = newData
             self.constraintHeight.constant = CGFloat(newData!.count) * self.actionSheetItemHeight + 5
             self.layoutIfNeeded()
             
             if self.actionSheetData?.count < 10 {
-                self.tableView.scrollEnabled = false
+                self.tableView.isScrollEnabled = false
             }
             self.tableView.reloadData()
         }
     }
-
+    
     /* action sheet height min(50) max(100) */
-    public var actionSheetItemHeight : CGFloat = 50 {
+    open var actionSheetItemHeight : CGFloat = 50 {
         didSet {
             if self.actionSheetItemHeight != 50  {
                 self.actionSheetItemHeight = max(CGFloat(50), min(CGFloat(100),self.actionSheetItemHeight))
@@ -77,36 +90,40 @@ public class KKActionSheet: UIView, UITableViewDelegate, UITableViewDataSource {
                 }
                 self.layoutIfNeeded()
                 self.tableView.reloadData()
-               
+                
             }
         }
     }
     
     
+    /*size*/
+    open var imageSize : CGFloat?
+ 
+ 
     /* Colors */
     /* textColor for Normal state */
-    public var actionSheetCellTextColorNormal : UIColor? {
+    open var actionSheetCellTextColorNormal : UIColor? {
         willSet(newValue) {
             self.actionSheetCellTextColorNormal = newValue
         }
     }
     
     /* backgroundColor for Normal state */
-    public var actionSheetCellBGColorNormal : UIColor? {
+    open var actionSheetCellBGColorNormal : UIColor? {
         willSet(newValue) {
             self.actionSheetCellBGColorNormal = newValue
         }
     }
     
     /* textColor for Highlighted state */
-    public var actionSheetCellTextColorHighlighted : UIColor? {
+    open var actionSheetCellTextColorHighlighted : UIColor? {
         willSet(newValue) {
             self.actionSheetCellTextColorHighlighted = newValue
         }
     }
     
     /* backgroundColor for Highlighted state */
-    public var actionSheetCellBGColorHighlighted : UIColor? {
+    open var actionSheetCellBGColorHighlighted : UIColor? {
         willSet(newValue) {
             self.actionSheetCellBGColorHighlighted = newValue
         }
@@ -115,7 +132,7 @@ public class KKActionSheet: UIView, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: init Methods
     convenience init () {
-        self.init(frame:UIScreen.mainScreen().bounds)
+        self.init(frame:UIScreen.main.bounds)
     }
     
     override init(frame: CGRect) {
@@ -130,15 +147,15 @@ public class KKActionSheet: UIView, UITableViewDelegate, UITableViewDataSource {
     
     func xibSetup() {
         view = loadViewFromNib()
-    
+        
         view.frame = bounds
         view.backgroundColor = UIColor(red: 25.0/255.0, green: 31.0/255.0, blue: 40.0/255.0, alpha: 0.85)
         
-        self.tableView.backgroundColor = .clearColor()
-        self.tableView.registerClass(ActionSheetCell.self, forCellReuseIdentifier: "action_cell")
+        self.tableView.backgroundColor = .clear
+        self.tableView.register(ActionSheetCell.self, forCellReuseIdentifier: "action_cell")
         
         // Make the view stretch with containing view
-        view.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+        view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         addSubview(view)
         
         self.registerTapGesture()
@@ -146,9 +163,9 @@ public class KKActionSheet: UIView, UITableViewDelegate, UITableViewDataSource {
     
     func loadViewFromNib() -> UIView {
         
-        let bundle = NSBundle(forClass: self.dynamicType)
+        let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: nibName, bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         
         return view
     }
@@ -156,28 +173,34 @@ public class KKActionSheet: UIView, UITableViewDelegate, UITableViewDataSource {
     
     
     /* register tap gesture for closing */
-    private func registerTapGesture() {
-        self.viewForTap.userInteractionEnabled = true
+    fileprivate func registerTapGesture() {
+        self.viewForTap.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         self.viewForTap.addGestureRecognizer(tap)
     }
     
-    @objc private func handleTap(sender: UITapGestureRecognizer? = nil) {
+    @objc fileprivate func handleTap(_ sender: UITapGestureRecognizer? = nil) {
         self.closeActionSheet()
     }
     
     //MARK: Table View delegate
-    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    open func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    public func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return self.actionSheetItemHeight
     }
     
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("action_cell") as? ActionSheetCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "action_cell") as? ActionSheetCell
+        
+        if self.imageSize != nil {
+            cell?.viewContent.constraintImg.constant = self.imageSize!
+            cell?.viewContent.layoutIfNeeded()
+        }
+        
         cell?._bgColor = self.actionSheetCellBGColorNormal
         cell?._textColor = self.actionSheetCellTextColorNormal
         
@@ -186,38 +209,41 @@ public class KKActionSheet: UIView, UITableViewDelegate, UITableViewDataSource {
         
         cell!.cellSetupView()
         
-        if self.actionSheetData![indexPath.row].titleColor != nil {
-            cell?._textColor = self.actionSheetData![indexPath.row].titleColor!
+        if self.actionSheetData![(indexPath as NSIndexPath).row].titleColor != nil {
+            cell?._textColor = self.actionSheetData![(indexPath as NSIndexPath).row].titleColor!
         }
-
-        cell?.viewContent.lblTitle.text = self.actionSheetData![indexPath.row].title
-        cell?.viewContent.imgIcon.image = self.actionSheetData![indexPath.row].image
         
-        if self.actionSheetData![indexPath.row].image == nil {
+        cell?.viewContent.lblTitle.text = self.actionSheetData![(indexPath as NSIndexPath).row].title
+        cell?.viewContent.imgIcon.image = self.actionSheetData![(indexPath as NSIndexPath).row].image
+        
+        if self.actionSheetData![(indexPath as NSIndexPath).row].image == nil {
             cell?.viewContent.constraintImg.constant = -16;
         } else {
             cell?.viewContent.constraintImg.constant = 10;
         }
+        
+        
 
+        
         cell?.layoutIfNeeded()
         return cell!
         
     }
     
-    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        if  self.actionSheetData![indexPath.row]._complitionHandler != nil {
-            self.actionSheetData![indexPath.row]._complitionHandler!()
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if  self.actionSheetData![(indexPath as NSIndexPath).row]._complitionHandler != nil {
+            self.actionSheetData![(indexPath as NSIndexPath).row]._complitionHandler!()
         }
         self.closeActionSheet()
     }
     
-    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return actionSheetData == nil ? 0 : actionSheetData!.count
     }
     
     //MARK: func for show\dissmis it
-    public func showActionSheetWithSender(sender cntr:UIViewController) {
+    open func showActionSheetWithSender(sender cntr:UIViewController) {
         if cntr.navigationController != nil {
             self.alpha = 0
             cntr.navigationController?.view.addSubview(self)
@@ -226,25 +252,26 @@ public class KKActionSheet: UIView, UITableViewDelegate, UITableViewDataSource {
             cntr.view.addSubview(self)
         }
         self.fadeIn()
+        self.tableView.reloadData()
     }
     func closeActionSheet() {
         self.fadeOut()
     }
     
     /* animation show \ close */
-    private func fadeIn() {
-        UIView.animateWithDuration(0.35, animations: { () -> Void in
+    fileprivate func fadeIn() {
+        UIView.animate(withDuration: 0.35, animations: { () -> Void in
             self.alpha = 1
-        }) { (complection) -> Void in
-        }
+        }, completion: { (complection) -> Void in
+        }) 
     }
     
-    private func fadeOut() {
-        UIView.animateWithDuration(0.35, animations: { () -> Void in
+    fileprivate func fadeOut() {
+        UIView.animate(withDuration: 0.35, animations: { () -> Void in
             self.alpha = 0
-
-        }) { (complection) -> Void in
+            
+        }, completion: { (complection) -> Void in
             self.removeFromSuperview()
-        }
+        }) 
     }
 }

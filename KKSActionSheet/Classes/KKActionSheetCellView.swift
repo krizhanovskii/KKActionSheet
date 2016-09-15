@@ -19,6 +19,7 @@ class KKActionSheetCellView: UIView {
     @IBOutlet var imgIcon: UIImageView!
     
 
+    @IBOutlet var constraintImgWidth: NSLayoutConstraint!
     
     
     //MARK: METHODS for init view
@@ -35,15 +36,15 @@ class KKActionSheetCellView: UIView {
     func xibSetup() {
         view = loadViewFromNib()
         
-        self.lblTitle.textColor = .lightGrayColor()
-        self.imgIcon.backgroundColor = .clearColor()
+        self.lblTitle.textColor = .lightGray
+        self.imgIcon.backgroundColor = .clear
         
         self.imgIcon.layer.masksToBounds = true
         
         view.frame = bounds
-        view.backgroundColor = .whiteColor()
+        view.backgroundColor = .white
         // Make the view stretch with containing view
-        view.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+        view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         addSubview(view)
         
     }
@@ -52,9 +53,9 @@ class KKActionSheetCellView: UIView {
     
     func loadViewFromNib() -> UIView {
         
-        let bundle = NSBundle(forClass: self.dynamicType)
+        let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: nibName, bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         
         return view
     }

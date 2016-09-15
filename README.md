@@ -25,6 +25,13 @@ it, simply add the following line to your Podfile:
 pod "KKSActionSheet"
 ```
 
+If u want add it to version swift2.2
+
+```ruby
+pod "KKSActionSheet" '~> 0.1.5'
+```
+
+
 ## Usage
 First import lib:
 ```swift

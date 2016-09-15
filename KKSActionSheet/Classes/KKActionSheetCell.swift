@@ -30,26 +30,26 @@ class ActionSheetCell: UITableViewCell {
     
 
     
-    override func setHighlighted(highlighted: Bool, animated: Bool) {
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         if(highlighted){
-            self.viewContent.view.backgroundColor = _bgHGColor != nil ? _bgHGColor : .whiteColor()
+            self.viewContent.view.backgroundColor = _bgHGColor != nil ? _bgHGColor : .white
             self.viewContent.lblTitle.textColor = _textHGColor != nil ? _textHGColor : UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
         } else{
-            self.viewContent.view.backgroundColor = _bgColor != nil ? _bgColor : .whiteColor()
-            self.viewContent.lblTitle.textColor = _textColor != nil ? _textColor : .lightGrayColor()
+            self.viewContent.view.backgroundColor = _bgColor != nil ? _bgColor : .white
+            self.viewContent.lblTitle.textColor = _textColor != nil ? _textColor : .lightGray
         }
     }
     
     
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         if(selected){
-            self.viewContent.view.backgroundColor = _bgHGColor != nil ? _bgHGColor : .whiteColor()
+            self.viewContent.view.backgroundColor = _bgHGColor != nil ? _bgHGColor : .white
             self.viewContent.lblTitle.textColor = _textHGColor != nil ? _textHGColor : UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
 
         } else{
-            self.viewContent.view.backgroundColor = _bgColor != nil ? _bgColor : .whiteColor()
-            self.viewContent.lblTitle.textColor = _textColor != nil ? _textColor : .lightGrayColor()
+            self.viewContent.view.backgroundColor = _bgColor != nil ? _bgColor : .white
+            self.viewContent.lblTitle.textColor = _textColor != nil ? _textColor : .lightGray
             
         }
     }
