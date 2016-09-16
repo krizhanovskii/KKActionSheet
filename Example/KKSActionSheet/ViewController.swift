@@ -16,24 +16,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        /*
-        let button = UIButton(frame: CGRectMake(10, 10, 50, 50));
-        button.addTarget(self, action: #selector(self.press), forControlEvents: .TouchUpInside);
-        button.backgroundColor = .yellowColor();
+        
+        let button = UIButton(frame: CGRect(x:10, y:10,width: 50, height:50));
+        button.target(forAction: #selector(self.press), withSender: self)
+        button.backgroundColor = .yellow;
         self.view.addSubview(button)
         
         
+        let data = KKActionSheetData(image: UIImage(),title: "1",complitionHandler:nil)
+        data.titleColor = .green
         
-        
-        
-        actionSheet.actionSheetData = [KKActionSheetData(image: UIImage(),title: "1",complitionHandler:nil),
-                                             KKActionSheetData(image: UIImage(named:"picker_camera"),title:"2",complitionHandler:nil),
+        actionSheet.actionSheetData = [data,
                                              KKActionSheetData(image: UIImage(named:"picker_close"),title: "3",complitionHandler: { Void in
                                                 print("Handler used")
                                              })]
-
-
-       */
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,9 +39,8 @@ class ViewController: UIViewController {
 
     @objc func press() {
         print("press", terminator: "")
-        /*
+        
         actionSheet.showActionSheetWithSender(sender:self)
-         */
     }
 }
 

@@ -19,7 +19,6 @@ class KKActionSheetCellView: UIView {
     @IBOutlet var imgIcon: UIImageView!
     
 
-    @IBOutlet var constraintImgWidth: NSLayoutConstraint!
     
     
     //MARK: METHODS for init view
@@ -43,6 +42,7 @@ class KKActionSheetCellView: UIView {
         
         view.frame = bounds
         view.backgroundColor = .white
+        
         // Make the view stretch with containing view
         view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         addSubview(view)

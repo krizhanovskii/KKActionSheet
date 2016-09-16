@@ -3,13 +3,11 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KKActionSheetCellView" customModule="testCUstomFilter" customModuleProvider="target">
             <connections>
                 <outlet property="constraintImg" destination="AS4-Se-pP2" id="zpg-fY-M3b"/>
-                <outlet property="constraintImgWidth" destination="unl-jV-0Xa" id="9Nc-mt-bM5"/>
                 <outlet property="imgIcon" destination="0aS-cL-0tB" id="apN-iM-Trq"/>
                 <outlet property="lblTitle" destination="QMe-sd-t5G" id="HIX-4p-CfA"/>
             </connections>
@@ -19,21 +17,15 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0aS-cL-0tB">
-                    <rect key="frame" x="10" y="12.5" width="25" height="25"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0aS-cL-0tB">
+                    <rect key="frame" x="10" y="17" width="16" height="16"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="16" id="emQ-ap-Glo"/>
-                        <constraint firstAttribute="width" constant="25" id="unl-jV-0Xa"/>
-                        <constraint firstAttribute="width" secondItem="0aS-cL-0tB" secondAttribute="height" multiplier="1:1" id="wuF-HD-jwn"/>
+                        <constraint firstAttribute="width" constant="16" id="unl-jV-0Xa"/>
                     </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="emQ-ap-Glo"/>
-                        </mask>
-                    </variation>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMe-sd-t5G">
-                    <rect key="frame" x="55" y="10" width="255" height="30"/>
+                    <rect key="frame" x="36" y="10" width="274" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="MkJ-b0-xiS"/>
                     </constraints>
@@ -47,7 +39,7 @@
                 <constraint firstItem="0aS-cL-0tB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="AS4-Se-pP2"/>
                 <constraint firstItem="QMe-sd-t5G" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="H48-dc-166"/>
                 <constraint firstItem="0aS-cL-0tB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="VaP-zM-rna"/>
-                <constraint firstItem="QMe-sd-t5G" firstAttribute="leading" secondItem="0aS-cL-0tB" secondAttribute="trailing" constant="20" id="f3M-ty-0LW"/>
+                <constraint firstItem="QMe-sd-t5G" firstAttribute="leading" secondItem="0aS-cL-0tB" secondAttribute="trailing" constant="10" id="f3M-ty-0LW"/>
                 <constraint firstAttribute="trailing" secondItem="QMe-sd-t5G" secondAttribute="trailing" constant="10" id="qYD-y6-kMU"/>
                 <constraint firstItem="QMe-sd-t5G" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="sjP-gi-Dzp"/>
                 <constraint firstAttribute="bottom" secondItem="QMe-sd-t5G" secondAttribute="bottom" constant="10" id="tAh-Ho-BZo"/>
