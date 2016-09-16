@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
+        /*
         let button = UIButton(frame: CGRectMake(10, 10, 50, 50));
         button.addTarget(self, action: #selector(self.press), forControlEvents: .TouchUpInside);
         button.backgroundColor = .yellowColor();
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
                                              })]
 
 
-        
+       */
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,9 +42,10 @@ class ViewController: UIViewController {
     }
 
     @objc func press() {
-        print("press")
-        
+        print("press", terminator: "")
+        /*
         actionSheet.showActionSheetWithSender(sender:self)
+         */
     }
 }
 

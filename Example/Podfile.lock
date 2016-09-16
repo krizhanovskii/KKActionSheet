@@ -1,5 +1,5 @@
 PODS:
-  - KKSActionSheet (0.1.0)
+  - KKSActionSheet (1.0)
 
 DEPENDENCIES:
   - KKSActionSheet (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  KKSActionSheet: a3328ce0241c7c0bd510e1a1cafdbe6dca1c77e0
+  KKSActionSheet: 2a1821dd8a4373ceff0646cb2cb42750f5f2a601
 
 PODFILE CHECKSUM: 22370abbb1bd6ea3b04f4ec0a055201dbfd15a5c
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.0.rc.2
