@@ -28,7 +28,7 @@ pod "KKSActionSheet"
 If u want add it to version swift2.2
 
 ```ruby
-pod "KKSActionSheet" '~> 0.1.5'
+pod 'KKSActionSheet', '~> 0.1.5'
 ```
 
 
