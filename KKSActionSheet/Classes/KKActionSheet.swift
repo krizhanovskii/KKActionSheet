@@ -166,7 +166,6 @@ public class KKActionSheet: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     
-    
     /* register tap gesture for closing */
     fileprivate func registerTapGesture() {
         self.viewForTap.isUserInteractionEnabled = true
