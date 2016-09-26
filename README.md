@@ -14,8 +14,9 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 
 ## Requirements
-* ios: 8.3. 
-* xcode: 6
+* ios: 9. 
+* xcode: 8
+* swift 3
 
 ## Installation
 KKSActionSheet is available through [CocoaPods](http://cocoapods.org). To install
