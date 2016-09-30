@@ -81,16 +81,14 @@ public var actionSheetCellBGColorHighlighted: UIColor?
 
 If u want different color for all cells, use it:
 ```swift
-let data = KKActionSheetData(image: UIImage(),title:"1",complitionHandler:nil)
-data.titleColor = .orangeColor()
+let data = KKActionSheetData(image: UIImage(),title: "1",complitionHandler:nil)
+data.titleColor = .green
 
-
-customActionSheet.actionSheetData = [data,
-KKActionSheetData(image:UIImage(named:"picker_camera"),title:"2",complitionHandler:nil),
-KKActionSheetData(image:UIImage(named:"picker_close"),title: "3",complitionHandler: { Void in
-print("HAndler used")
-button.backgroundColor = .orangeColor();
+actionSheet.actionSheetData = [data,
+KKActionSheetData(image: UIImage(named:"picker_close"),title: "3",complitionHandler: { Void in
+print("Handler used")
 })]
+
 ```
 
 ## Author
